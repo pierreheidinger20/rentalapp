@@ -1,0 +1,25 @@
+
+    <div class="col s4">
+        <div class="card rental-card">
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4"><i class="fas fa-money-check-alt"></i>&nbsp; {{ rental.name }} <i class="material-icons right">more_vert</i></span>
+              <p><a>{{ rental.month }} - {{ rental.year }}</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">
+                Payments Month 
+                <i class="material-icons right">close</i>
+              </span>
+              <br>
+              <p>Full Rental : R$ {{ rental.fullPaymentRental }}</p>
+              <p>Full Others : R$ {{ rental.fullPaymentsOthers }}</p>
+              <P>Full : R$ {{rental.fullPaymentRental  + rental.fullPaymentsOthers  }}</P>
+              <hr>
+              <div *ngFor="let user of rental.usersPayments" >         
+                <p>{{ user.name }}  - R$ {{ user.payment }}</p>
+              </div>
+            </div>
+        </div>
+    </div>
+    
+

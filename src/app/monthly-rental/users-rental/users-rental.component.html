@@ -1,0 +1,17 @@
+<div class="card">
+
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Users</span>
+        <div class="row">
+            <div class="collection">
+                <a *ngFor="let user of users" class="collection-item">
+                  <span class="badge">% {{user.porcentual}}</span>                     
+                  {{ user.name}}
+                  &nbsp;
+                </a>
+                <!-- <a  class="collection-item"><span class="badge">% {{ totalPorcentual }}</span></a> -->
+            </div>                          
+        </div>
+
+    </div>
+  </div>

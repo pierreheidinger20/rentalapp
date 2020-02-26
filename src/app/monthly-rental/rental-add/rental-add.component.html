@@ -1,0 +1,114 @@
+<div>
+    <div class="modal-content">
+        <div class="row">
+          <div class="input-field col s5">
+            <input id="name" [(ngModel)]="rental.name" type="text" class="validate">
+            <label for="first_name">Name Payment</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s5">
+            <input placeholder="Year" id="name" [(ngModel)]="rental.year" type="text" class="validate">
+          </div>
+          <div class="input-field col s5">
+            <input placeholder="Month" id="name" [(ngModel)]="rental.month" type="text" class="validate">
+          </div>
+        </div>
+
+        <div class="row">
+          
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">Rental payments</span>
+                <div class="row">
+                  <div class="input-field col s5">
+                    <input id="name" [formControl]="txtNamePaymentRental" type="text" class="validate">
+                    <label for="first_name">Name</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <input id="cost" [formControl]="txtCostPaymentRental" type="number" class="validate">
+                    <label for="first_name">Cost</label>
+                  </div>
+                  <div class="input-field col s1">
+                    <a (click)="newRentalPayment()" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+                  </div>       
+                </div>
+              </div>
+              <div *ngIf="rental.rentalPayments.length > 0" class="card-action">
+                <ul class="collection">        
+                  <li *ngFor="let rentalPayment of rental.rentalPayments" class="collection-item avatar">
+                    <i class="fas fa-gopuram circle"></i>
+                    <span class="title">{{rentalPayment.name}}</span>
+                    <p>R$ {{rentalPayment.cost}}<br>
+                  </li>
+                  <li class="collection-item"><div>Full Cost<a href="#!" class="secondary-content">R$ {{rental.fullPaymentRental }}</a></div></li>
+                </ul>
+              </div>
+            </div>
+        
+        </div>
+
+        <div class="row">
+          
+          <div class="card ">
+            <div class="card-content">
+              <span class="card-title">Others payments</span>
+              <div class="row">
+                <div class="input-field col s5">
+                  <input id="name" type="text" [formControl]="txtNamePaymentOthers" class="validate">
+                  <label for="first_name">Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="cost" type="number" [formControl]="txtCostPaymentOthers" class="validate">
+                  <label for="first_name">Cost</label>
+                </div>
+                <div class="input-field col s1">
+                  <a (click)="newRentalOthers()" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>       
+              </div>
+            </div>
+            <div *ngIf="rental.otherPayments.length > 0" class="card-action">
+              <ul class="collection">        
+                <li *ngFor="let rentalOther of rental.otherPayments" class="collection-item avatar">
+                  <i class="fas fa-gopuram circle"></i>
+                  <span class="title">{{rentalOther.name}}</span>
+                  <p>R$ {{rentalOther.cost}}<br>
+                </li>
+                <li class="collection-item"><div>Full Cost<a href="#!" class="secondary-content">R$ {{rental.fullPaymentsOthers }}</a></div></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div  class="row">
+          
+          <div class="card">
+            
+            <div class="card-content">
+              <span class="card-title">Results </span>
+
+              <ul class="collection">        
+                <li *ngFor="let userPayment of rental.usersPayments" class="collection-item avatar">
+                  <i class="fas fa-user circle"></i>
+                  <span class="title">{{userPayment.name}}</span>
+                  <p>R$ {{userPayment.payment}}<br>
+                </li>
+              </ul>
+
+            </div>
+      
+          </div>
+        </div>
+    </div>
+    <hr>
+    <div class="modal-footer">
+      <a (click)="calculatePayment()" class="waves-effect waves-light btn">Calculate</a>
+      &nbsp;
+      <a (click)="clean()" class="waves-effect waves-light btn">Clean Form</a>
+      &nbsp;
+      <a (click)="save()" class="waves-effect waves-light btn">Save</a>
+    </div>
+    <br>
+</div>
+
+  
